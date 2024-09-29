@@ -1,0 +1,29 @@
+name: BUILD customers
+
+on:
+  push:
+    paths:
+      - 'src/customers/**'
+  workflow_dispatch: 
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Login to GitHub Packages Docker registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: src/customers
+        push: true
+        tags: ghcr.io/${{ github.repository }}/customers:latest

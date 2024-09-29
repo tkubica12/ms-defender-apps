@@ -1,0 +1,41 @@
+@BASE_URL=http://localhost:8000
+
+# @name createCustomer
+POST {{BASE_URL}}/api/customers
+content-type: application/json
+
+{
+    "name": "Tomas",
+    "email": "tomas@email.local"
+}
+
+
+###
+
+GET {{BASE_URL}}/api/customers
+content-type: application/json
+
+###
+
+GET {{BASE_URL}}/api/customers?author=Author%201
+content-type: application/json
+
+###
+@id = {{createCustomer.response.body.$.id}}
+GET {{BASE_URL}}/api/customers/{{id}}
+content-type: application/json
+
+###
+@id = {{createCustomer.response.body.$.id}}
+DELETE {{BASE_URL}}/api/customers/{{id}}
+content-type: application/json
+
+###
+@id = {{createCustomer.response.body.$.id}}
+PUT {{BASE_URL}}/api/customers/{{id}}
+content-type: application/json
+
+{
+    "author": "Author UPDATED"
+}
+
