@@ -1,6 +1,7 @@
 import os
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ValidationError
 from uuid import uuid4
 from Customers import Customer, UpdateCustomer
@@ -184,6 +185,6 @@ async def deleteCustomer(customer_id: str):
 
         # Delete the customer from the database
         container.delete_item(item=customer_id, partition_key=customer_id)
-        return {"message": "Customer deleted successfully"}
+        return JSONResponse(status_code=204, content={"message": "Customer deleted successfully"})
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

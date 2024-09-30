@@ -1,6 +1,7 @@
 import os
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ValidationError
 from uuid import uuid4
 from Books import Book, UpdateBook
@@ -181,7 +182,7 @@ async def deleteBook(book_id: str):
         if items:
             # Delete the book from the database
             container.delete_item(item=items[0])
-            return {"message": "Book deleted successfully"}
+            return JSONResponse(status_code=204, content={"message": "Book deleted successfully"})
         else:
             raise HTTPException(status_code=404, detail="Book not found")
     except Exception as e:
