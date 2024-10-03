@@ -11,9 +11,9 @@ resource "azurerm_storage_account" "main" {
   local_user_enabled              = true
   shared_access_key_enabled       = true
   tags = {
-    git_commit           = "e943c0f558fea4bc974665eadcb7861e22de2b6c"
+    git_commit           = "74a13ceac49feb41dca17e5d40b6f63fc9edb9a2"
     git_file             = "terraform/not-great-iac/storage.tf"
-    git_last_modified_at = "2024-09-30 12:22:21"
+    git_last_modified_at = "2024-10-03 18:51:45"
     git_last_modified_by = "tkubica12@gmail.com"
     git_modifiers        = "tkubica12"
     git_org              = "tkubica12"
