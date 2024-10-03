@@ -40,3 +40,9 @@ resource "azurerm_role_assignment" "acr_deployment" {
   role_definition_name = "Contributor"
   principal_id         = azurerm_user_assigned_identity.deployment.principal_id
 }
+
+resource "azurerm_role_assignment" "aks_acr" {
+  scope                = azurerm_container_registry.main.id
+  role_definition_name = "AcrPull"
+  principal_id         = azurerm_user_assigned_identity.aks.principal_id
+}

@@ -17,8 +17,8 @@ resource "azurerm_resource_deployment_script_azure_cli" "import_images" {
   cleanup_preference  = "OnSuccess"
 
   script_content = <<EOF
-az acr import --name ${azurerm_container_registry.main.name} --source docker.io/library/nginx:1.7.11 --image nginx:1.7.11
-az acr import --name ${azurerm_container_registry.main.name} --source docker.io/alfredodeza/vulnerable:latest --image vulnerable:latest
+az acr import --name ${azurerm_container_registry.main.name} --source docker.io/library/nginx:1.22.0 --image nginx:1.22.0 --force
+az acr import --name ${azurerm_container_registry.main.name} --source docker.io/alfredodeza/vulnerable:latest --image vulnerable:latest --force
 EOF
 
   identity {
