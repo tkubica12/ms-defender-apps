@@ -37,14 +37,14 @@ resource "azurerm_kubernetes_cluster" "main" {
 resource "helm_release" "api_attacks" {
   name             = "api-attacks"
   chart            = "../../charts/api_attacks"
-  namespace        = defender-demo
+  namespace        = "defender-demo"
   create_namespace = true
 }
 
 resource "helm_release" "runtime_attacks" {
   name             = "runtime-attacks"
   chart            = "../../charts/runtime_attacks"
-  namespace        = defender-demo
+  namespace        = "defender-demo"
   create_namespace = true
 }
 
