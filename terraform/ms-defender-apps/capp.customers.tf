@@ -39,4 +39,15 @@ resource "azurerm_container_app" "customers" {
     type         = "UserAssigned"
     identity_ids = [azurerm_user_assigned_identity.main.id]
   }
+  tags = {
+    git_commit           = "e943c0f558fea4bc974665eadcb7861e22de2b6c"
+    git_file             = "terraform/ms-defender-apps/capp.customers.tf"
+    git_last_modified_at = "2024-09-30 12:22:21"
+    git_last_modified_by = "tkubica12@gmail.com"
+    git_modifiers        = "tkubica12"
+    git_org              = "tkubica12"
+    git_repo             = "ms-defender-apps"
+    yor_name             = "customers"
+    yor_trace            = "8b656c96-cfe1-4120-86ba-67c6c890b916"
+  }
 }

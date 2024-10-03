@@ -21,6 +21,17 @@ resource "azurerm_kubernetes_cluster" "main" {
       default_node_pool[0].upgrade_settings
     ]
   }
+  tags = {
+    git_commit           = "34edf68a6d8a3201c5936a365f6787136d50d2d1"
+    git_file             = "terraform/ms-defender-apps/aks.tf"
+    git_last_modified_at = "2024-10-03 14:46:35"
+    git_last_modified_by = "tkubica12@gmail.com"
+    git_modifiers        = "tkubica12"
+    git_org              = "tkubica12"
+    git_repo             = "ms-defender-apps"
+    yor_name             = "main"
+    yor_trace            = "bee870bb-169f-43c8-a7f0-dd8e16f66b1c"
+  }
 }
 
 resource "helm_release" "api_attacks" {
