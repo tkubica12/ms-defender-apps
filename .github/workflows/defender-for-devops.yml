@@ -26,6 +26,12 @@ on:
   schedule:
     - cron: '35 18 * * 2'
 
+permissions:
+  contents: read
+  id-token: write
+  actions: read
+  security-events: write
+
 jobs:
   MSDO:
     # currently only windows latest is supported
@@ -45,3 +51,8 @@ jobs:
       uses: github/codeql-action/upload-sarif@v3
       with:
         sarif_file: ${{ steps.msdo.outputs.sarifFile }}
+    - name: Upload alerts file as a workflow artifact
+      uses: actions/upload-artifact@v3
+      with:  
+        name: alerts
+        path: ${{ steps.msdo.outputs.sarifFile }}
