@@ -8,9 +8,9 @@ resource "azurerm_mssql_server" "main" {
   minimum_tls_version           = "1.0"
   public_network_access_enabled = true
   tags = {
-    git_commit           = "e943c0f558fea4bc974665eadcb7861e22de2b6c"
-    git_file             = "terraform/not-great-iac/storage.tf"
-    git_last_modified_at = "2024-09-30 12:22:21"
+    git_commit           = "35414944c7506069e7d7764c15c5c05284473fcd"
+    git_file             = "terraform/not-great-iac/sql.tf"
+    git_last_modified_at = "2024-10-03 18:51:45"
     git_last_modified_by = "tkubica12@gmail.com"
     git_modifiers        = "tkubica12"
     git_org              = "tkubica12"
