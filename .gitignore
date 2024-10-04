@@ -5,3 +5,4 @@
 *.terraform.lock.hcl
 __pycache__
 .env
+terraform/not-great-iac/.terraform.tfstate.lock.info
