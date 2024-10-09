@@ -31,7 +31,7 @@ def get_user():
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
     # SQL Injection vulnerability
-    cursor.execute(f"SELECT * FROM users WHERE id = {user_id}")
+    cursor.execute("SELECT * FROM users WHERE id = ?", (user_id,))
     user = cursor.fetchone()
     conn.close()
     return jsonify(user)
